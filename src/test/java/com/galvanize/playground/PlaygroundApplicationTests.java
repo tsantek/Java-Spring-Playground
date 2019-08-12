@@ -38,6 +38,14 @@ public class PlaygroundApplicationTests {
 				.andExpect(content().string(("Profile")));
 	}
 
+	@Test
+	public  void  testMathPi() throws Exception {
+		RequestBuilder requestMathPi = MockMvcRequestBuilders.get("/math/pi");
+		this.mvc.perform(requestMathPi)
+				.andExpect(status().isOk())
+				.andExpect(content().string(("3.141592653589793")));
+	}
+
 
 
 

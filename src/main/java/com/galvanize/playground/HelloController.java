@@ -16,4 +16,9 @@ public class HelloController {
         return "Profile";
     }
 
+    @GetMapping("/math/pi")
+    public String getPi(){
+        return "3.141592653589793";
+    }
+
 }
