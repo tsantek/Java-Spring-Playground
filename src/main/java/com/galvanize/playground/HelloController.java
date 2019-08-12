@@ -1,7 +1,6 @@
 package com.galvanize.playground;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class HelloController {
@@ -20,5 +19,11 @@ public class HelloController {
     public String getPi(){
         return "3.141592653589793";
     }
+
+    @PatchMapping("/math/volume/6/7/8")
+    public String getCommentsForTask() {
+        return "The volume of a 6x7x8 rectangle is 336";
+    }
+
 
 }

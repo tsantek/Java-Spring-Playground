@@ -8,10 +8,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.RequestBuilder;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
 //@SpringBootTest
@@ -43,8 +43,18 @@ public class PlaygroundApplicationTests {
 		RequestBuilder requestMathPi = MockMvcRequestBuilders.get("/math/pi");
 		this.mvc.perform(requestMathPi)
 				.andExpect(status().isOk())
+				.andExpect(content().string(( "The volume of a 6x7x8 rectangle is 336")));
+	}
+
+
+	@Test
+	public  void  testVolume() throws Exception {
+		RequestBuilder requestVolume = MockMvcRequestBuilders.get("/math/volume/6/7/8\"");
+		this.mvc.perform(requestVolume)
+				.andExpect(status().isOk())
 				.andExpect(content().string(("3.141592653589793")));
 	}
+
 
 
 
